@@ -1,8 +1,8 @@
 === Visual Editor Biography ===
-Contributors: kevinlearynet
+Contributors: kevinlearynet, roccomarco
 Tags: profile, biography, bio, rich, text, editor, wysiwyg, tinymce, wpeditor, visual, editor, biographic, info, description, profile biography, profile description, rich text, TinyMCE, user, user profile, users, author
 Requires at least: 3.3.0
-Tested up to: 3.3.1
+Tested up to: 4.6.1
 Stable tag: trunk
 
 Replaces the author "Biographical Info" profile field with a TinyMCE visual editor. 
@@ -28,6 +28,8 @@ The *Visual Editor Biography* plugin is compatibly with WordPress Multisite, jus
 2. The formatted front end view for `get_the_author_meta('description')` and `the_author_meta('description')`
 
 == Changelog ==
+= 1.5 =
+* Added support to polylang
 
 = 1.4 =
 * Check for 'edit_posts' capability instead of 'contributor' for accurate role checks
