@@ -1,0 +1,9 @@
+{
+  "name": "certainlyakey/visual-biography-editor",
+  "description": "Replaces the author biographical info profile field with a TinyMCE visual editor",
+  "type": "wordpress-plugin",
+  "minimum-stability": "dev",
+  "require": {
+    "composer/installers": "~1.0"
+  }
+}
