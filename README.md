@@ -1,6 +1,6 @@
 # Visual Editor Biography
 
-Contributors: kevinlearynet
+Contributors: kevinlearynet, RoccoMarco, certainlyakey
 Tags: profile, biography, bio, rich, text, editor, wysiwyg, tinymce, wpeditor, visual, editor, biographic, info, description, profile biography, profile description, rich text, TinyMCE, user, user profile, users, author
 Requires at least: 3.3.0
 Tested up to: 3.3.1
@@ -18,6 +18,19 @@ Please note that this plugins modifies the output of `get_the_author_meta('descr
 
 The *Visual Editor Biography* plugin is compatibly with WordPress Multisite, just use the [Network Activate](http://codex.wordpress.org/Create_A_Network#WordPress_Plugins) feature to enable a visual editor on every site. If you only want a visual editor for a specific site then activate the plugin for that site only.
 
+## Hooks
+
+There's a hook `veb_wp_editor_args` which allows to change the default arguments passed to `wp_editor` and thus change its functionality. Here's an example:
+
+```
+// Remove Media button from the user biography rich text field
+function remove_media_from_user_bio($args) {
+  $args['media_buttons'] = false;
+  return $args;
+}
+add_filter('veb_wp_editor_args', 'remove_media_from_user_bio' );
+```
+
 # Installation
 
 1. Install easily with the WordPress plugin control panel or manually download the plugin and upload the folder `visual-editor-biography` to the `/wp-content/plugins/` directory 
@@ -29,6 +42,13 @@ The *Visual Editor Biography* plugin is compatibly with WordPress Multisite, jus
 2. The formatted front end view for `get_the_author_meta('description')` and `the_author_meta('description')`
 
 # Changelog
+
+### 1.6
+* Added a hook `veb_wp_editor_args` for changing default `wp_editor` arguments
+* Some Polylang compatibility fixes
+
+### 1.5
+* Added Polylang compatibility (RoccoMarco)
 
 ### 1.4
 * Check for 'edit_posts' capability instead of 'contributor' for accurate role checks
