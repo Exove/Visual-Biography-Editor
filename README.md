@@ -1,10 +1,10 @@
 # Visual Editor Biography
 
-Contributors: kevinlearynet, RoccoMarco, certainlyakey
-Tags: profile, biography, bio, rich, text, editor, wysiwyg, tinymce, wpeditor, visual, editor, biographic, info, description, profile biography, profile description, rich text, TinyMCE, user, user profile, users, author
-Requires at least: 3.3.0
-Tested up to: 3.3.1
-Stable tag: trunk
+- Contributors: kevinlearynet, RoccoMarco, certainlyakey
+- Tags: profile, biography, bio, rich, text, editor, wysiwyg, tinymce, wpeditor, visual, editor, biographic, info, description, profile biography, profile description, rich text, TinyMCE, user, user profile, users, author
+- Requires at least: 3.3.0
+- Tested up to: 3.3.1
+- Stable tag: trunk
 
 Replaces the author "Biographical Info" profile field with a TinyMCE visual editor. 
 
@@ -20,7 +20,7 @@ The *Visual Editor Biography* plugin is compatibly with WordPress Multisite, jus
 
 ## Hooks
 
-There's a hook `veb_wp_editor_args` which allows to change the default arguments passed to `wp_editor` and thus change its functionality. Here's an example:
+There's a hook `veb_wp_editor_args` which allows to change the default arguments passed to [`wp_editor`](https://codex.wordpress.org/Function_Reference/wp_editor) and thus change its functionality. Here's an example:
 
 ```
 // Remove Media button from the user biography rich text field
@@ -39,7 +39,12 @@ add_filter('veb_wp_editor_args', 'remove_media_from_user_bio' );
 # Screenshots
 
 1. The TinyMCE visual editor added to the *Users > Profile* page
+
+![The TinyMCE visual editor](/screenshot-1.png?raw=true "The TinyMCE visual editor added to the Users > Profile page")
+
 2. The formatted front end view for `get_the_author_meta('description')` and `the_author_meta('description')`
+
+![The formatted front end view](/screenshot-2.png?raw=true "The formatted front end view for get_the_author_meta('description') and the_author_meta('description')")
 
 # Changelog
 
