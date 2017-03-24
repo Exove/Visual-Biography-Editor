@@ -91,7 +91,7 @@ class KLVisualBiographyEditor {
 				<th><label for="description"><?php _e('Biographical Info'); ?></label></th>
 				<td>
 					<?php
-          if (function_exists(pll_languages_list)) {
+          if (function_exists('pll_languages_list')) {
             $langs = pll_languages_list();
             $lang_names = pll_languages_list(array('fields' => 'name'));
             foreach($langs as $ii => $lang) {
