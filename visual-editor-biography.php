@@ -100,7 +100,7 @@ class KLVisualBiographyEditor {
                 $meta .= '_' . $lang; 
               $field = 'description_' . $lang;
               $description = get_user_meta( $user->ID, $meta, true);
-              echo'<p class="wp-description lang-name">'.$lang_names[$ii].'</p>';
+              echo'<p class="wp-description lang-name" style="margin-bottom:10px">'.$lang_names[$ii].'</p>';
               wp_editor( $description, $field );
             }
           }
