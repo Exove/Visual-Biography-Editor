@@ -1,14 +1,14 @@
 <?php
 /*
 Plugin Name: Visual Biography Editor
-Version: 1.5
+Version: 1.6
 Plugin URI: http://www.kevinleary.net/
 Description: Replace the "Biographical Info" profile field with a TinyMCE visual, rich text editor. Requires WordPress 3.3 or higher.
-Author: Kevin Leary, Rocco Marco Guglielmi
+Author: Kevin Leary, Rocco Marco Guglielmi, Aleksandr Beliaev
 Author URI: http://www.kevinleary.net
 License: GPL2
 
-Copyright 2016 Kevin Leary  (email : info@kevinleary.net), Rocco Marco Guglielmi (email : guglielmir@playembedded.org)
+Copyright 2016 Kevin Leary  (email : info@kevinleary.net), Rocco Marco Guglielmi (email : guglielmir@playembedded.org), Aleksandr Beliaev (email : certainlyakey@gmail.com)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License, version 2, as 
@@ -91,6 +91,9 @@ class KLVisualBiographyEditor {
 				<th><label for="description"><?php _e('Biographical Info'); ?></label></th>
 				<td>
 					<?php
+					$wp_editor_args = array();
+					$wp_editor_args = apply_filters('veb_wp_editor_args', $wp_editor_args);
+
           if (function_exists('pll_languages_list')) {
             $langs = pll_languages_list();
             $lang_names = pll_languages_list(array('fields' => 'name'));
@@ -101,12 +104,12 @@ class KLVisualBiographyEditor {
               $field = 'description_' . $lang;
               $description = get_user_meta( $user->ID, $meta, true);
               echo'<p class="wp-description lang-name" style="margin-bottom:10px">'.$lang_names[$ii].'</p>';
-              wp_editor( $description, $field );
+              wp_editor( $description, $field, $wp_editor_args );
             }
           }
           else {
             $description = get_user_meta( $user->ID, 'description', true);
-            wp_editor( $description, 'description' );         
+            wp_editor( $description, 'description', $wp_editor_args );         
           }
 					?>
 					<p class="description"><?php _e('Share a little biographical information to fill out your profile. This may be shown publicly.'); ?></p>
@@ -150,6 +153,10 @@ class KLVisualBiographyEditor {
 			return;
 			
 		remove_all_filters('pre_user_description');
+	}
+
+	public function add_wp_editor_args( $args ) {
+		return $args;
 	}
 }
 
