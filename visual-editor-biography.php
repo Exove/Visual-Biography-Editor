@@ -103,13 +103,13 @@ class KLVisualBiographyEditor {
                 $meta .= '_' . $lang; 
               $field = 'description_' . $lang;
               $description = get_user_meta( $user->ID, $meta, true);
-              echo'<p class="wp-description lang-name" style="margin-bottom:10px">'.$lang_names[$ii].'</p>';
+              echo'<p class="wp-description lang-name" style="margin-bottom:10px; float:left;">'.$lang_names[$ii].'</p>';
               wp_editor( $description, $field, $wp_editor_args );
             }
           }
           else {
             $description = get_user_meta( $user->ID, 'description', true);
-            wp_editor( $description, 'description', $wp_editor_args );         
+            wp_editor( $description, 'description', $wp_editor_args );
           }
 					?>
 					<p class="description"><?php _e('Share a little biographical information to fill out your profile. This may be shown publicly.'); ?></p>
